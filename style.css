@@ -48,11 +48,11 @@ nav {
   min-height: 100vh;
   background: #0d1117;
   display: grid;
-  grid-template-columns: 48% 52%;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 80px 4% 60px;
+  padding: 80px 7% 60px;
   position: relative; overflow: hidden;
-  gap: 0;
+  gap: 40px;
 }
 .hero::before {
   content: '';
@@ -95,12 +95,12 @@ nav {
 }
 .hero-social-link:hover { background: #00b4d8; color: var(--white); transform: translateY(-3px); }
 .hero-right {
-  display: flex; justify-content: flex-start; align-items: center;
+  display: flex; justify-content: center; align-items: center;
   height: 100%; z-index: 1;
 }
 .hero-photo {
-  width: 100%; max-width: 560px;
-  height: 650px;
+  width: 100%; max-width: 420px;
+  height: 520px;
   border-radius: 16px; overflow: hidden;
   box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,180,216,0.12);
   position: relative;
