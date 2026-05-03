@@ -97,13 +97,24 @@ nav {
 .hero-right {
   display: flex; justify-content: flex-start; align-items: center;
   height: 100%; z-index: 1; overflow: hidden;
+  position: relative;
+}
+.hero-right::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 80px; height: 70%;
+  background: radial-gradient(ellipse at left center, rgba(0,180,216,0.45) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 .hero-photo {
   width: 566px;
   height: 679px;
   max-width: 100%;
   flex-shrink: 0;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
   border-radius: 16px; overflow: hidden;
   box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,180,216,0.12);
 }
