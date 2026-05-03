@@ -103,6 +103,7 @@ nav {
   height: 679px;
   max-width: 100%;
   flex-shrink: 0;
+  margin-left: 0.5rem;
   border-radius: 16px; overflow: hidden;
   box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,180,216,0.12);
 }
