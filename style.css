@@ -46,7 +46,7 @@ nav {
 /* HERO */
 .hero {
   min-height: 100vh;
-  background: #0a1a08;
+  background: linear-gradient(160deg, #071c14 0%, #0c2a1e 50%, #0f3526 100%);
   display: flex; align-items: center; justify-content: center;
   padding: 100px 5% 60px;
   position: relative; overflow: hidden;
