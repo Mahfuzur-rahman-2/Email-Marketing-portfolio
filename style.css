@@ -24,7 +24,7 @@ body {
 /* NAV */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 999;
-  background: rgba(10, 16, 24, 0.97);
+  background: rgba(6, 10, 18, 0.97);
   backdrop-filter: blur(10px);
   padding: 0 5%;
   display: flex; align-items: center; justify-content: space-between;
@@ -44,20 +44,31 @@ nav {
 .nav-links a:hover { color: var(--accent); }
 
 /* HERO */
-.hero {
+.hero-bg {
   min-height: 100vh;
-  background: #0d1117;
+  background: #060a12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 84px 3% 40px;
+}
+.hero {
+  width: 100%;
+  max-width: 1160px;
+  background: #0d1b2a;
+  border-radius: 28px;
   display: grid;
   grid-template-columns: 55% 45%;
   align-items: center;
-  padding: 80px 6% 60px;
+  padding: 60px 60px 50px 60px;
   position: relative; overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
 }
 .hero::before {
   content: '';
   position: absolute; bottom: -20%; right: 5%;
   width: 500px; height: 500px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,180,216,0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,180,216,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero-left {
