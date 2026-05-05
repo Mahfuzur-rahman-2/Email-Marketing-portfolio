@@ -45,6 +45,7 @@
 
 <!-- ABOUT -->
 <section id="about">
+  <div class="about-highlight-wrap">
   <div class="about-text-only">
     <div class="about-top">
       <div class="section-tag">About Me</div>
@@ -64,6 +65,7 @@
       <a class="tag tag-link" onclick="openSkill('skill-copywriting')">Email Copywriting & Sequences</a>
       <a class="tag tag-link" onclick="openSkill('skill-monitoring')">Campaign Monitoring & Optimization</a>
     </div>
+  </div>
   </div>
 </section>
 
@@ -401,6 +403,7 @@
 
   // About section scroll reveal + active highlight
   const aboutCard = document.querySelector('.about-text-only');
+  const aboutWrap = document.querySelector('.about-highlight-wrap');
   let aboutRevealed = false;
   let aboutActiveTimer = null;
   const aboutObserver = new IntersectionObserver((entries) => {
@@ -408,11 +411,14 @@
       if (entry.isIntersecting) {
         aboutCard.classList.add('about-visible');
         clearTimeout(aboutActiveTimer);
-        // Add glow after card finishes rising
-        aboutActiveTimer = setTimeout(() => aboutCard.classList.add('about-active'), 950);
+        aboutActiveTimer = setTimeout(() => {
+          aboutWrap.classList.add('about-active');
+          aboutCard.classList.add('about-active');
+        }, 950);
         aboutRevealed = true;
       } else if (aboutRevealed) {
         clearTimeout(aboutActiveTimer);
+        aboutWrap.classList.remove('about-active');
         aboutCard.classList.remove('about-active');
       }
     });
