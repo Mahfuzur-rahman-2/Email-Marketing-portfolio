@@ -399,6 +399,21 @@
     });
   });
 
+  // About section scroll reveal + active highlight
+  const aboutCard = document.querySelector('.about-text-only');
+  let aboutRevealed = false;
+  const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        aboutCard.classList.add('about-visible', 'about-active');
+        aboutRevealed = true;
+      } else if (aboutRevealed) {
+        aboutCard.classList.remove('about-active');
+      }
+    });
+  }, { threshold: 0.15 });
+  aboutObserver.observe(document.getElementById('about'));
+
   function openSkill(id) {
     document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => {
