@@ -278,7 +278,12 @@ section { padding: 90px 5%; }
   width: 4px; height: 100%;
   background: linear-gradient(180deg, var(--primary), var(--accent));
 }
-.service-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--card-shadow); }
+.service-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(26,145,218,0.30);
+  background: #eef6fd;
+}
 .service-icon {
   font-size: 2.2rem; margin-bottom: 16px;
   background: linear-gradient(135deg, var(--primary), var(--accent));
