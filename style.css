@@ -296,20 +296,43 @@ section { padding: 90px 5%; }
 #experience { background: var(--bg); }
 .exp-cards {
   display: flex;
-  flex-direction: column;
-  gap: 24px; max-width: 700px; margin: 0 auto 48px;
+  flex-direction: row;
+  gap: 20px; max-width: 1020px; margin: 0 auto 48px;
+  align-items: flex-start;
 }
 .exp-card {
+  flex: 1;
   background: var(--white); border-radius: 16px;
-  padding: 28px 28px 24px;
+  padding: 24px;
   box-shadow: var(--card-shadow);
   border: 1px solid #e8f0f8;
   border-top: 4px solid var(--accent);
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+              background 0.25s ease, border-color 0.25s ease;
+  position: relative; cursor: default;
 }
-.exp-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(15,76,129,0.15); }
+.exp-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 0 0 3px var(--accent), 0 24px 52px rgba(26,145,218,0.32);
+  background: #eef6fd;
+  border-color: var(--accent);
+  z-index: 3;
+}
 .exp-card-header {
-  display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px;
+  display: flex; gap: 14px; align-items: flex-start; margin-bottom: 0;
+  transition: margin-bottom 0.35s ease;
+}
+.exp-card:hover .exp-card-header { margin-bottom: 14px; }
+.exp-meta,
+.exp-subtitle,
+.exp-desc {
+  max-height: 0; opacity: 0; overflow: hidden;
+  transition: max-height 0.45s ease, opacity 0.35s ease;
+}
+.exp-card:hover .exp-meta,
+.exp-card:hover .exp-subtitle,
+.exp-card:hover .exp-desc {
+  max-height: 300px; opacity: 1;
 }
 .exp-icon {
   width: 52px; height: 52px; border-radius: 12px;
