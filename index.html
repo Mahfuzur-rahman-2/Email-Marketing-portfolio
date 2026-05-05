@@ -402,12 +402,17 @@
   // About section scroll reveal + active highlight
   const aboutCard = document.querySelector('.about-text-only');
   let aboutRevealed = false;
+  let aboutActiveTimer = null;
   const aboutObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        aboutCard.classList.add('about-visible', 'about-active');
+        aboutCard.classList.add('about-visible');
+        clearTimeout(aboutActiveTimer);
+        // Add glow after card finishes rising
+        aboutActiveTimer = setTimeout(() => aboutCard.classList.add('about-active'), 950);
         aboutRevealed = true;
       } else if (aboutRevealed) {
+        clearTimeout(aboutActiveTimer);
         aboutCard.classList.remove('about-active');
       }
     });
