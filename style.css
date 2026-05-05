@@ -65,21 +65,21 @@ nav {
   z-index: 1;
 }
 .hero-greeting {
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem); color: #8892a4; font-weight: 400; margin-bottom: 4px;
+  font-size: clamp(1rem, 1.4vw, 1.3rem); color: #8892a4; font-weight: 400; margin-bottom: 6px;
 }
 .hero h1 {
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-size: clamp(2.4rem, 5vw, 5rem);
   font-weight: 800; color: var(--white);
-  line-height: 1.05; margin-bottom: 12px;
+  line-height: 1.05; margin-bottom: 14px;
 }
 .hero h1 span { color: #00b4d8; }
 .hero-title {
-  font-size: clamp(0.95rem, 1.5vw, 1.4rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.75rem);
   font-weight: 700; color: #00b4d8;
-  margin-bottom: clamp(12px, 2vh, 22px); letter-spacing: 0.3px;
+  margin-bottom: clamp(14px, 2vh, 26px); letter-spacing: 0.3px;
 }
 .hero-desc {
-  font-size: clamp(0.85rem, 1vw, 0.98rem); color: #8892a4;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem); color: #8892a4;
   max-width: 90%; margin-bottom: clamp(20px, 3vh, 36px); line-height: 1.85;
 }
 .hero-buttons {
