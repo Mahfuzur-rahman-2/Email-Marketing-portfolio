@@ -57,12 +57,12 @@
     <p>My work focuses on creating a clean, scalable outreach process where every part is connected — verified data, clear targeting, strong messaging, healthy sending infrastructure, and continuous campaign improvement.</p>
     <p>The goal is simple: better deliverability, cleaner targeting, more qualified replies, and more real B2B conversations.</p>
     <div class="about-tags">
-      <a href="#skill-infrastructure" class="tag tag-link">Cold Email Infrastructure</a>
-      <a href="#skill-inbox" class="tag tag-link">Inbox Management & Warm-Up</a>
-      <a href="#skill-lead" class="tag tag-link">Lead Sourcing & Data Cleaning</a>
-      <a href="#skill-icp" class="tag tag-link">ICP Segmentation</a>
-      <a href="#skill-copywriting" class="tag tag-link">Email Copywriting & Sequences</a>
-      <a href="#skill-monitoring" class="tag tag-link">Campaign Monitoring & Optimization</a>
+      <a class="tag tag-link" onclick="openSkill('skill-infrastructure')">Cold Email Infrastructure</a>
+      <a class="tag tag-link" onclick="openSkill('skill-inbox')">Inbox Management & Warm-Up</a>
+      <a class="tag tag-link" onclick="openSkill('skill-lead')">Lead Sourcing & Data Cleaning</a>
+      <a class="tag tag-link" onclick="openSkill('skill-icp')">ICP Segmentation</a>
+      <a class="tag tag-link" onclick="openSkill('skill-copywriting')">Email Copywriting & Sequences</a>
+      <a class="tag tag-link" onclick="openSkill('skill-monitoring')">Campaign Monitoring & Optimization</a>
     </div>
   </div>
 </section>
@@ -398,6 +398,17 @@
       a.style.color = a.getAttribute('href') === '#' + current ? '#1a91da' : '';
     });
   });
+
+  function openSkill(id) {
+    document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('highlighted'));
+      const card = document.getElementById(id);
+      card.classList.add('highlighted');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => card.classList.remove('highlighted'), 2800);
+    }, 600);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();

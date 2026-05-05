@@ -217,6 +217,19 @@ section { padding: 90px 5%; }
   border: 1px solid #e8f0f8;
 }
 .skill-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(15,76,129,0.15); }
+@keyframes skillPop {
+  0%   { transform: translateY(0) scale(1); box-shadow: var(--card-shadow); }
+  20%  { transform: translateY(-10px) scale(1.04); box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(26,145,218,0.35); }
+  80%  { transform: translateY(-10px) scale(1.04); box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(26,145,218,0.35); }
+  100% { transform: translateY(0) scale(1); box-shadow: var(--card-shadow); }
+}
+.skill-card.highlighted {
+  animation: skillPop 2.8s ease forwards;
+  background: #eef6fd;
+  border-color: var(--accent);
+  position: relative; z-index: 5;
+  max-width: 450px;
+}
 .skill-icon {
   width: 48px; height: 48px; border-radius: 12px;
   background: var(--light-accent); display: flex; align-items: center; justify-content: center;
