@@ -2,8 +2,8 @@
 
 :root {
   --primary: #0f4c81;
-  --accent: #1a91da;
-  --light-accent: #e8f4fd;
+  --accent: #166534;
+  --light-accent: #f0fdf4;
   --dark: #0d1b2a;
   --text: #2d3748;
   --muted: #718096;
@@ -58,7 +58,7 @@ nav {
   content: '';
   position: absolute; bottom: -20%; right: 5%;
   width: 500px; height: 500px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,180,216,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(22,101,52,0.10) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero-left {
@@ -177,7 +177,7 @@ section { padding: 90px 5%; }
   transition: box-shadow 0.5s ease;
 }
 .about-highlight-wrap.about-active {
-  box-shadow: 0 0 0 4px var(--accent), 0 28px 64px rgba(26,145,218,0.35);
+  box-shadow: 0 0 0 4px var(--accent), 0 28px 64px rgba(22,101,52,0.35);
 }
 .about-text-only {
   background: var(--white);
@@ -237,19 +237,19 @@ section { padding: 90px 5%; }
 }
 .skill-card:hover {
   transform: translateY(-10px) scale(1.04);
-  box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(26,145,218,0.35);
-  background: #eef6fd;
+  box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(22,101,52,0.35);
+  background: #f0fdf4;
   border-color: var(--accent);
 }
 @keyframes skillPop {
   0%   { transform: translateY(0) scale(1); box-shadow: var(--card-shadow); }
-  20%  { transform: translateY(-10px) scale(1.04); box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(26,145,218,0.35); }
-  80%  { transform: translateY(-10px) scale(1.04); box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(26,145,218,0.35); }
+  20%  { transform: translateY(-10px) scale(1.04); box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(22,101,52,0.35); }
+  80%  { transform: translateY(-10px) scale(1.04); box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(22,101,52,0.35); }
   100% { transform: translateY(0) scale(1); box-shadow: var(--card-shadow); }
 }
 .skill-card.highlighted {
   animation: skillPop 5s ease forwards;
-  background: #eef6fd;
+  background: #f0fdf4;
   border-color: var(--accent);
   position: relative; z-index: 5;
   max-width: 450px;
@@ -281,8 +281,8 @@ section { padding: 90px 5%; }
 .service-card:hover {
   border-color: var(--accent);
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(26,145,218,0.30);
-  background: #eef6fd;
+  box-shadow: 0 0 0 3px var(--accent), 0 20px 48px rgba(22,101,52,0.30);
+  background: #f0fdf4;
 }
 .service-icon {
   font-size: 2.2rem; margin-bottom: 16px;
@@ -313,8 +313,8 @@ section { padding: 90px 5%; }
 }
 .exp-card:hover {
   transform: translateY(-8px) scale(1.04);
-  box-shadow: 0 0 0 3px var(--accent), 0 24px 52px rgba(26,145,218,0.32);
-  background: #eef6fd;
+  box-shadow: 0 0 0 3px var(--accent), 0 24px 52px rgba(22,101,52,0.32);
+  background: #f0fdf4;
   border-color: var(--accent);
   z-index: 3;
 }
@@ -391,6 +391,8 @@ section { padding: 90px 5%; }
 
 /* CONTACT */
 #contact {
+  --accent: #1a91da;
+  --light-accent: #e8f4fd;
   background: linear-gradient(135deg, var(--dark) 0%, #1a3a5c 100%);
   color: var(--white);
 }
