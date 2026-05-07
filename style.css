@@ -46,7 +46,7 @@ nav {
 /* HERO */
 .hero {
   min-height: 100vh;
-  background: #0d1117;
+  background: #0a1a0a;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
