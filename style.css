@@ -72,10 +72,10 @@ nav {
   font-weight: 800; color: var(--white);
   line-height: 1.05; margin-bottom: 14px;
 }
-.hero h1 span { color: #00b4d8; }
+.hero h1 span { color: #166534; }
 .hero-title {
   font-size: clamp(1.1rem, 1.8vw, 1.75rem);
-  font-weight: 700; color: #00b4d8;
+  font-weight: 700; color: #166534;
   margin-bottom: clamp(14px, 2vh, 26px); letter-spacing: 0.3px;
 }
 .hero-desc {
@@ -88,12 +88,12 @@ nav {
 .hero-social { display: flex; gap: 12px; }
 .hero-social-link {
   width: 40px; height: 40px; border-radius: 50%;
-  border: 2px solid #00b4d8; color: #00b4d8;
+  border: 2px solid #166534; color: #166534;
   display: flex; align-items: center; justify-content: center;
   font-size: 0.9rem; text-decoration: none;
   transition: all 0.25s;
 }
-.hero-social-link:hover { background: #00b4d8; color: var(--white); transform: translateY(-3px); }
+.hero-social-link:hover { background: #166534; color: var(--white); transform: translateY(-3px); }
 .hero-right {
   display: flex; justify-content: center; align-items: center;
   height: 100%; z-index: 1;
@@ -103,7 +103,7 @@ nav {
   aspect-ratio: 566 / 679;
   margin-left: 1rem;
   border-radius: 16px; overflow: hidden;
-  box-shadow: 0 0 18px 4px rgba(0,180,216,0.55), 0 0 60px 10px rgba(0,180,216,0.2);
+  box-shadow: 0 0 18px 4px rgba(22,101,52,0.55), 0 0 60px 10px rgba(22,101,52,0.2);
 }
 .hero-photo img {
   width: 100%; height: 100%;
@@ -125,13 +125,13 @@ nav {
   text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
 }
 .btn-primary {
-  background: #00b4d8; color: var(--white); border: 2px solid #00b4d8;
+  background: #166534; color: var(--white); border: 2px solid #166534;
 }
-.btn-primary:hover { background: #0090ad; border-color: #0090ad; transform: translateY(-2px); }
+.btn-primary:hover { background: #0f4d27; border-color: #0f4d27; transform: translateY(-2px); }
 .btn-outline {
   background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4);
 }
-.btn-outline:hover { border-color: #00b4d8; color: #00b4d8; transform: translateY(-2px); }
+.btn-outline:hover { border-color: #166534; color: #166534; transform: translateY(-2px); }
 
 /* STATS */
 .stats-bar {
