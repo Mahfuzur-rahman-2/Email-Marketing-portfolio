@@ -439,7 +439,8 @@ section { padding: 90px 5%; }
   position: relative;
 }
 .process-steps::before {
-  content: ''; position: absolute; top: 31px; left: 8%; right: 8%;
+  content: ''; position: absolute; top: 31px;
+  left: calc(10% + 31px); right: calc(10% + 31px);
   height: 2px; background: linear-gradient(90deg, var(--accent), var(--primary));
   z-index: 0;
 }
