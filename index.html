@@ -310,19 +310,19 @@
 
   <div class="stats-bar">
     <div class="stat-item">
-      <div class="stat-number">1+</div>
+      <div class="stat-number" data-target="1" data-suffix="+">1+</div>
       <div class="stat-label">Year in Cold Email Outreach</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">87+</div>
+      <div class="stat-number" data-target="87" data-suffix="+">87+</div>
       <div class="stat-label">Campaign Projects Completed</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">43+</div>
+      <div class="stat-number" data-target="43" data-suffix="+">43+</div>
       <div class="stat-label">Happy Clients</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">418+</div>
+      <div class="stat-number" data-target="418" data-suffix="+">418+</div>
       <div class="stat-label">Sending Inboxes Managed</div>
     </div>
   </div>
@@ -676,6 +676,35 @@
       setTimeout(() => card.classList.remove('highlighted'), 5000);
     }, 600);
   }
+
+  // Animated stat counters — count up from 0 when stats-bar scrolls into view
+  const animateCounter = (el) => {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    if (isNaN(target)) return;
+    if (target <= 2) { el.textContent = target + suffix; return; }
+    const duration = 1800;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+    el.textContent = '0' + (el.dataset.suffix || '');
+  });
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.stat-number[data-target]').forEach(animateCounter);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.stats-bar').forEach(b => statsObserver.observe(b));
 
 </script>
 
