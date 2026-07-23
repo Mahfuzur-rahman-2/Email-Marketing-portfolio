@@ -425,6 +425,15 @@ section { padding: 90px 5%; }
 .exp-card:hover .exp-desc {
   max-height: 300px; opacity: 1;
 }
+/* Touch devices (no hover): always show full experience content */
+@media (hover: none) {
+  .exp-card-header { margin-bottom: 14px; }
+  .exp-meta,
+  .exp-subtitle,
+  .exp-desc {
+    max-height: 300px; opacity: 1;
+  }
+}
 .exp-icon {
   width: 52px; height: 52px; border-radius: 12px;
   background: var(--light-accent);
