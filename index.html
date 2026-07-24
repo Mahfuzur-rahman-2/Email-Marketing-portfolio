@@ -864,18 +864,27 @@
     });
   });
 
-  // Smooth nav highlight on scroll
+  // Smooth nav highlight + live URL hash update on scroll
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
+  let lastSection = '';
 
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
+      if (window.scrollY >= s.offsetTop - 90) current = s.getAttribute('id');
     });
     navLinks.forEach(a => {
       a.style.color = a.getAttribute('href') === '#' + current ? '#1a91da' : '';
     });
+    // reflect the current section in the URL — without jumping or flooding history
+    if (current && current !== lastSection) {
+      lastSection = current;
+      history.replaceState(null, '', '#' + current);
+    } else if (!current && lastSection) {
+      lastSection = '';
+      history.replaceState(null, '', location.pathname + location.search);
+    }
   });
 
   // About section scroll reveal + active highlight
