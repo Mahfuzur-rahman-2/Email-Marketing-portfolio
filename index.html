@@ -70,6 +70,12 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="hero-aura a1"></span><span class="hero-aura a2"></span><span class="hero-aura a3"></span>
+    <span class="hero-grid"></span>
+    <canvas id="heroParticles"></canvas>
+    <span class="hero-vignette"></span>
+  </div>
   <div class="hero-left">
     <p class="hero-greeting">Hello, I'm</p>
     <h1>Mahfuzur <span>Rahman</span></h1>
@@ -1115,6 +1121,35 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     setActive(0); onScroll();
+  })();
+
+  // Hero particle constellation background
+  (function () {
+    const cv = document.getElementById('heroParticles');
+    if (!cv || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = cv.getContext('2d');
+    let W, H, pts;
+    function resize() {
+      W = cv.width = cv.offsetWidth; H = cv.height = cv.offsetHeight;
+      pts = Array.from({ length: Math.min(70, Math.floor(W * H / 22000)) }, (_, i) => ({
+        x: (i * 997) % (W || 1), y: (i * 613) % (H || 1), vx: ((i % 7) - 3) / 18, vy: ((i % 5) - 2) / 18 }));
+    }
+    resize(); window.addEventListener('resize', resize);
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      for (const p of pts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1;
+        ctx.beginPath(); ctx.arc(p.x, p.y, 1.6, 0, 7); ctx.fillStyle = 'rgba(82,182,240,0.7)'; ctx.fill();
+      }
+      for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = dx * dx + dy * dy;
+        if (d < 12000) { ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.strokeStyle = 'rgba(26,145,218,' + (0.14 * (1 - d / 12000)) + ')'; ctx.lineWidth = 1; ctx.stroke(); }
+      }
+      requestAnimationFrame(frame);
+    }
+    frame();
   })();
 
 </script>
