@@ -50,6 +50,9 @@
 </head>
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Mahfuzur<span>.</span></div>
@@ -79,7 +82,7 @@
   <div class="hero-left">
     <p class="hero-greeting">Hello, I'm</p>
     <h1>Mahfuzur <span>Rahman</span></h1>
-    <h2 class="hero-title">B2B Cold Email Specialist</h2>
+    <h2 class="hero-title"><span id="typeRole">B2B Cold Email Specialist</span><span class="type-cursor" aria-hidden="true"></span></h2>
     <p class="hero-desc">I help businesses build structured cold email systems that generate qualified leads, book meetings, and drive real B2B growth.</p>
     <div class="hero-result-badge">
       <i class="fas fa-chart-line"></i> 1038+ sales opportunities generated across 6+ industries
@@ -779,7 +782,11 @@
     <p>Feedback from businesses I've helped generate leads and book meetings through cold email.</p>
     <div class="divider"></div>
   </div>
-  <div class="testimonials-grid">
+  <div class="tst-carousel">
+    <button class="tst-arrow prev" id="tstPrev" aria-label="Previous review">‹</button>
+    <button class="tst-arrow next" id="tstNext" aria-label="Next review">›</button>
+    <div class="tst-viewport">
+    <div class="testimonials-grid" id="tstTrack">
 
     <div class="testimonial-card">
       <span class="testimonial-quote-mark">"</span>
@@ -859,6 +866,9 @@
       </div>
     </div>
 
+    </div>
+    </div>
+    <div class="tst-dots" id="tstDots"></div>
   </div>
 </section>
 
@@ -930,6 +940,10 @@
 <footer>
   <p>© 2025-2026 <span>Mahfuzur Rahman</span>. All rights reserved. &nbsp;|&nbsp; B2B Cold Email Specialist</p>
 </footer>
+
+<a href="https://wa.me/8801798050915" target="_blank" rel="noopener" class="float-cta" aria-label="Book a call on WhatsApp">
+  <i class="fab fa-whatsapp"></i><span>Book a Call</span>
+</a>
 
 <script>
   // Mobile hamburger menu
@@ -1150,6 +1164,55 @@
       requestAnimationFrame(frame);
     }
     frame();
+  })();
+
+  // Hero title — type the role once on load (keeps text if reduced-motion / no JS)
+  (function () {
+    const el = document.getElementById('typeRole');
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const full = el.textContent.trim();
+    el.textContent = ''; let i = 0;
+    (function t() { if (i <= full.length) { el.textContent = full.slice(0, i++); setTimeout(t, 65); } })();
+  })();
+
+  // Scroll progress bar + custom cursor glow
+  (function () {
+    const prog = document.getElementById('scrollProgress');
+    const glow = document.getElementById('cursorGlow');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      if (prog) prog.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+    }, { passive: true });
+    if (glow && window.matchMedia('(hover: hover)').matches) {
+      window.addEventListener('mousemove', e => {
+        glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; glow.classList.add('on');
+      }, { passive: true });
+    }
+  })();
+
+  // Testimonials auto-slide carousel
+  (function () {
+    const track = document.getElementById('tstTrack');
+    if (!track) return;
+    const slides = track.children.length;
+    const dotsBox = document.getElementById('tstDots');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let idx = 0, timer;
+    for (let k = 0; k < slides; k++) { const b = document.createElement('b'); b.addEventListener('click', () => go(k, true)); dotsBox.appendChild(b); }
+    const dots = [...dotsBox.children];
+    function go(n, manual) {
+      idx = (n + slides) % slides;
+      track.style.transform = 'translateX(-' + idx * 100 + '%)';
+      dots.forEach((d, x) => d.classList.toggle('on', x === idx));
+      if (manual) restart();
+    }
+    function restart() { clearInterval(timer); if (!reduce) timer = setInterval(() => go(idx + 1), 5000); }
+    const nx = document.getElementById('tstNext'), pv = document.getElementById('tstPrev');
+    if (nx) nx.addEventListener('click', () => go(idx + 1, true));
+    if (pv) pv.addEventListener('click', () => go(idx - 1, true));
+    const car = track.closest('.tst-carousel');
+    if (car) { car.addEventListener('mouseenter', () => clearInterval(timer)); car.addEventListener('mouseleave', restart); }
+    go(0); restart();
   })();
 
 </script>
