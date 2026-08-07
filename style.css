@@ -938,6 +938,21 @@ footer span { color: var(--accent); }
 .s3d .scene.active .conv.c3 .opp-num { animation: s3dNumPop 0.5s ease 2.9s backwards; }
 @keyframes s3dNumPop { 0%{ transform: scale(0.4); opacity: 0; } 60%{ transform: scale(1.25); } 100%{ transform: scale(1); opacity: 1; } }
 
+/* Scene 7: LinkedIn outreach → appointment */
+.s3d .li-card { width: 290px; padding: 16px 18px; border-radius: 14px; background: linear-gradient(160deg, rgba(20,40,60,0.9), rgba(8,18,30,0.96)); border: 1px solid rgba(120,170,210,0.18); box-shadow: 0 22px 50px rgba(0,0,0,0.45); }
+.s3d .li-head { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; color: #dbe8f5; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.s3d .li-logo { width: 24px; height: 24px; border-radius: 6px; background: #0a66c2; color: #fff; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+.s3d .li-row { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: #e6f0fb; padding: 8px 0; opacity: 0; transform: translateX(-12px); }
+.s3d .scene.active .li-row.r1 { animation: s3dLiIn 0.5s ease forwards 0.2s; }
+.s3d .scene.active .li-row.r2 { animation: s3dLiIn 0.5s ease forwards 0.7s; }
+.s3d .scene.active .li-row.r3 { animation: s3dLiIn 0.5s ease forwards 1.2s; }
+@keyframes s3dLiIn { to { opacity: 1; transform: none; } }
+.s3d .li-ic { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+.s3d .li-ic.ok { background: #12a97a; color: #fff; font-weight: 800; }
+.s3d .li-ic.msg { background: rgba(26,145,218,0.18); }
+.s3d .li-ic.cal { background: rgba(56,211,159,0.15); }
+.s3d .li-row.r3 { color: #4fe0aa; font-weight: 600; }
+
 /* right-side panels */
 .s3d .panels { display: flex; flex-direction: column; }
 .s3d .panel { min-height: 88vh; display: flex; flex-direction: column; justify-content: center; }

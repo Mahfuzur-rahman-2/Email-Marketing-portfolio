@@ -82,7 +82,7 @@
   <div class="hero-left">
     <p class="hero-greeting">Hello, I'm</p>
     <h1>Mahfuzur <span>Rahman</span></h1>
-    <h2 class="hero-title"><span id="typeRole">B2B Cold Email Specialist</span><span class="type-cursor" aria-hidden="true"></span></h2>
+    <h2 class="hero-title"><span id="typeRole">B2B Cold Email &amp; Outreach Strategist</span><span class="type-cursor" aria-hidden="true"></span></h2>
     <p class="hero-desc">I help businesses build structured cold email systems that generate qualified leads, book meetings, and drive real B2B growth.</p>
     <div class="hero-result-badge">
       <i class="fas fa-chart-line"></i> 1038+ sales opportunities generated across 6+ industries
@@ -323,6 +323,16 @@
           </div>
         </div>
 
+        <!-- Scene 7: LinkedIn outreach → appointment -->
+        <div class="scene li-scene" data-scene="6">
+          <div class="li-card">
+            <div class="li-head"><span class="li-logo">in</span> LinkedIn Outreach</div>
+            <div class="li-row r1"><span class="li-ic ok">✓</span> Connection accepted</div>
+            <div class="li-row r2"><span class="li-ic msg">💬</span> “Open to a quick call?”</div>
+            <div class="li-row r3"><span class="li-ic cal">📅</span> Meeting booked · Thu 3:00 PM</div>
+          </div>
+        </div>
+
         <div class="stage-badge" id="stageBadge">Infrastructure</div>
       </div>
     </div>
@@ -433,6 +443,24 @@
             <span class="chip"><span class="ci" style="background:#0f9d58">G</span>Google Sheets</span>
             <span class="chip"><span class="ci" style="background:#1a91da">↻</span>Automation</span>
             <span class="chip"><span class="ci" style="background:#f5b301">★</span>Reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" data-panel="6">
+        <div class="panel-inner">
+          <div class="panel-num">SERVICE 07</div>
+          <h2>LinkedIn Outreach &amp; Appointment Setting</h2>
+          <p>Multichannel outbound that pairs cold email with personalized LinkedIn touches — reaching decision-makers and turning conversations into booked meetings.</p>
+          <ul>
+            <li>Personalized LinkedIn connection &amp; follow-up</li>
+            <li>Multichannel sequences — email + LinkedIn</li>
+            <li>Appointment setting &amp; SDR support</li>
+          </ul>
+          <div class="chips">
+            <span class="chip"><span class="ci" style="background:#0a66c2">in</span>LinkedIn</span>
+            <span class="chip"><span class="ci" style="background:#1a91da">📅</span>Appointments</span>
+            <span class="chip"><span class="ci" style="background:#a855f7">↻</span>Multichannel</span>
           </div>
         </div>
       </div>
@@ -605,6 +633,10 @@
     <div class="stat-item">
       <div class="stat-number" data-target="87" data-suffix="+">87+</div>
       <div class="stat-label">Campaign Projects Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="1910" data-suffix="+">1910+</div>
+      <div class="stat-label">Meetings Booked</div>
     </div>
     <div class="stat-item">
       <div class="stat-number" data-target="43" data-suffix="+">43+</div>
@@ -1065,7 +1097,7 @@
     const scenes = [...root.querySelectorAll('.scene')];
     const panels = [...root.querySelectorAll('.panel')];
     const badge = document.getElementById('stageBadge');
-    const names = ['Infrastructure', 'Targeting', 'Sequencing', 'Deliverability', 'Monitoring', 'Reporting'];
+    const names = ['Infrastructure', 'Targeting', 'Sequencing', 'Deliverability', 'Monitoring', 'Reporting', 'LinkedIn'];
     function setActive(i) {
       scenes.forEach(s => s.classList.toggle('active', +s.dataset.scene === i));
       if (badge) badge.textContent = names[i];
